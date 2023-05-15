@@ -4,7 +4,7 @@ import MainPage from './pages/MainPage';
 import NewPost from './components/NewPost';
 import { PostContext } from './PostContext';
 import { useState } from 'react';
-import EditPost from './components/EditPost';
+import ViewPost from './components/ViewPost';
 
 export default function App() {
   const [newPostText, setNewPostText] = useState('');
@@ -15,7 +15,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<MainPage />}/>
           <Route path="/posts/new" element={<NewPost />}/>
-          <Route path="/posts/:id" element={<EditPost />}/>
+          <Route path="/posts/:id" element={<ViewPost />}/>
         </Routes>
       </div>
     </PostContext.Provider>

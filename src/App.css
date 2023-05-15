@@ -81,17 +81,25 @@
   font-size: 20px;
 }
 
+textarea.post__content {
+  width: 100%;
+  border: 1px solid #e8eaed;
+  border-radius: 5px;
+  resize: none;
+}
+
 .post__time, .post__close {
   position: absolute;
   top: 0;
-  right: 5px;
 }
 
 .post__time {
+  right: 25px;
   font-size: 10px;
 }
 
 .post__close {
+  right: 5px;
   transition: .3s;
   cursor: pointer;
 }

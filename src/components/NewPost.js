@@ -29,10 +29,10 @@ export default function NewPost() {
       </div>
 
       <div className="post__content">{newPostText}</div>
-      <span className="post__close" onClick={cancelPost}>&#10006;</span>
       <div className="post__button-wrapper">
         <Button text="Опубликовать" callback={addPost} />
       </div>
+      <span className="post__close" onClick={cancelPost}>&#10006;</span>
     </div>
   );
 }
