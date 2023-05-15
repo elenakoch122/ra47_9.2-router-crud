@@ -1,7 +1,9 @@
-import moment from "moment";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Button from "./Button";
+import moment from "moment";
+import Button from "./ui/Button";
+import PostHeader from "./blocks/PostHeader";
+import CloseButton from "./ui/CloseButton";
 
 export default function ViewPost() {
   const {id} = useParams();
@@ -38,31 +40,23 @@ export default function ViewPost() {
 
   return isEdit ? (
     <div className="post">
-      <div className="post__header">
-        <img className="post__header-img" src="https://ex-beton.ru/images/home/client-say/00.jpg" alt="" />
-        <p>Iron Man</p>
-      </div>
-
+      <PostHeader />
       <textarea className="post__content" value={post.content} onChange={onChangeHandler}></textarea>
-      <div className="post__button-wrapper flex-wrapper">
+      <div className="post__button-wrapper">
         <Button text="Сохранить" callback={savePost} />
       </div>
-      <span className="post__close" onClick={cancelEditing}>&#10006;</span>
+      <CloseButton callback={cancelEditing} />
     </div>
   ) : (
     <div className="post">
-      <div className="post__header">
-        <img className="post__header-img" src="https://ex-beton.ru/images/home/client-say/00.jpg" alt="" />
-        <p>Iron Man</p>
-      </div>
-
+      <PostHeader />
       <div className="post__content">{post.content}</div>
       <span className="post__time">{moment(post.created).fromNow()}</span>
       <div className="post__button-wrapper flex-wrapper">
         <Button text="Редактировать" callback={editPost}/>
         <Button text="Удалить" callback={deletePost} color="red"/>
       </div>
-      <span className="post__close" onClick={closePost}>&#10006;</span>
+      <CloseButton callback={closePost} />
     </div>
   );
 }

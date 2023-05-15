@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import Button from "./Button";
 import { useContext } from "react";
-import { PostContext } from "../PostContext";
+import { useNavigate } from "react-router-dom";
+import { PostContext } from "../../PostContext";
+import Button from "../ui/Button";
 
 export default function Header() {
   const {newPostText, setNewPostText} = useContext(PostContext);

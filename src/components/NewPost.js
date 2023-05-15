@@ -1,7 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import Button from "./Button";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { PostContext } from "../PostContext";
+import Button from "./ui/Button";
+import PostHeader from "./blocks/PostHeader";
+import CloseButton from "./ui/CloseButton";
 
 export default function NewPost() {
   const { newPostText, setNewPostText } = useContext(PostContext);
@@ -23,16 +25,12 @@ export default function NewPost() {
 
   return (
     <div className="post">
-      <div className="post__header">
-        <img className="post__header-img" src="https://ex-beton.ru/images/home/client-say/00.jpg" alt="" />
-        <p>Iron Man</p>
-      </div>
-
+      <PostHeader />
       <div className="post__content">{newPostText}</div>
       <div className="post__button-wrapper">
         <Button text="Опубликовать" callback={addPost} />
       </div>
-      <span className="post__close" onClick={cancelPost}>&#10006;</span>
+      <CloseButton callback={cancelPost} />
     </div>
   );
 }
